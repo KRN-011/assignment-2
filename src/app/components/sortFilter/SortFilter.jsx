@@ -16,11 +16,11 @@ const SortFilter = ({ games = [], setFilteredGames }) => {
 
   return (
     <>
-      <select onChange={handleSort} className="border p-2 mb-4 w-full rounded-md">
+      <select onChange={handleSort} className="border p-2 mb-4 rounded-md w-1/4">
         <option value="all">All Platforms</option>
-        {platforms.map((platform, index) => (
-            <option key={index} value={platform}>
-                {platform}
+        {platforms.filter(i => typeof i != "undefined").map((gamePlatform, index) => (
+            <option key={index} value={gamePlatform}>
+                {gamePlatform}
             </option>
         ))}
       </select>

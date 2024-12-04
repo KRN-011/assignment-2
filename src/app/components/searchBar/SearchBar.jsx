@@ -7,7 +7,7 @@ const SearchBar = ({ games, setFilteredGames }) => {
       const userQuery = event.target.value.toLowerCase();
       setQuery(userQuery)
       const filtered = games.filter((game) =>
-        game.title.toLowerCase().includes(query)
+        game.title && game.title.toLowerCase().includes(userQuery)
       );
       setFilteredGames(filtered);
     };
@@ -18,7 +18,7 @@ const SearchBar = ({ games, setFilteredGames }) => {
     };
   
     return (
-      <div className="mb-4 flex items-center space-x-2">
+      <div className="mb-4 flex items-center space-x-2 w-9/12">
         <input
           type="text"
           placeholder="Search games by title..."

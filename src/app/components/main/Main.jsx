@@ -31,7 +31,11 @@ const Main = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center">Loading...</div>;
+    return (
+      <div className="text-4xl flex justify-center items-center">
+        Loading...
+      </div>
+    );
   }
 
   if (!games.length) {
@@ -40,9 +44,13 @@ const Main = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Games Listing</h1>
-      <SearchBar games={games} setFilteredGames={setFilteredGames} />
-      <SortFilter games={games} setFilteredGames={setFilteredGames} />
+      <h1 className="text-4xl font-bold mb-4 flex justify-center">
+        Games Listing
+      </h1>
+      <div className="flex gap-3">
+        <SearchBar games={games} setFilteredGames={setFilteredGames} />
+        <SortFilter games={games} setFilteredGames={setFilteredGames} />
+      </div>
       <GameLsit games={filteredGames} />
     </div>
   );
